@@ -1,0 +1,17 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "path": "images/agent-mode-single-loop.png",
+      "prompt": "Use case: infographic-diagram.\nCreate a Chinese educational diagram for a tutorial about how a SINGLE AGENT works. Landscape 16:9, pure white background, restrained blue and teal, large highly legible Simplified Chinese text, clean technical boxes and directed arrows, generous whitespace, no robots or decorative illustrations.\nExact title: “单 Agent：在一个会话中持续推进任务”.\nDiagram: User box “用户任务” enters one large lightly blue outlined container labeled “一个 Agent · 一个 Session”. Inside it a three-node cycle: “根据上下文决定下一步” → “调用工具” → “读取工具结果” → back to “根据上下文决定下一步”. Add a clearly labelled outgoing branch from decision node “任务完成” to an outside output box “回答用户”. Bottom of container: “会话历史：任务、工具调用、结果与回答”. Small note below: “多次工具调用，仍然是一个 Agent”.\nIllustrate runtime control flow only. No project names, package names, file paths, skill/plugin implementation, prewritten source analysis answer, recording instructions, or false claims that every turn must call a tool. The output branch from decision allows directly answering."
+    },
+    {
+      "path": "images/agent-mode-subagent-delegation.png",
+      "prompt": "Use case: infographic-diagram.\nCreate a Chinese technical educational diagram 16:9 landscape, white background, clean blue/teal boxes, large legible Simplified Chinese, generous space, no decorative robots. Title exactly “SubAgent：委派、独立执行、返回结果”.\nLeft container “父 Agent · Session A”, contains vertically “理解任务与拆分” and “继续处理其余工作” and “核对与汇总”.\nRight container “子 Agent · Session B”, contains a small closed three-step cycle “判断” → “工具” → “结果” → “判断”, underneath “独立完成子任务”.\nOutside far left “用户任务” → top of parent.\nParent top → child arrow label “委派：目标、上下文、交付要求”.\nChild → parent bottom return arrow label “返回：结论、证据、未解决问题”.\nParent bottom → outside bottom output “最终回答”.\nA separate thin dashed arrow from parent to child labelled “后续消息：继续同一子级”.\nBottom footnote exactly “独立会话；通过任务与消息传递信息”.\nNo package names, file paths, project code conclusions, team task board, model provider labels, recording/editing notes. This is a general execution organization principle, not an analysis answer."
+    },
+    {
+      "path": "images/agent-mode-team-collaboration.png",
+      "prompt": "Use case: infographic-diagram.\nCreate a Chinese technical educational architecture diagram, 16:9 landscape, white background, clean blue teal purple accents, crisp flat boxes and directed arrows, large readable Chinese, minimal text. Title “智能体团队：分工、消息、共享任务状态”.\nTop center container “Lead · 独立 Session”, subtitle “拆分任务 · 协调 · 汇总”.\nMiddle lower left container “成员 A · 独立 Session”, subtitle “判断 → 工具 → 结果”; lower right symmetrical container “成员 B · 独立 Session”, same subtitle.\nCentered between members a board “共享任务板” with three short rows “任务目标”, “负责人和状态”, “依赖关系”.\nArrows connecting Lead and each member labelled “分配 / 汇报”.\nArrows connecting each member and board labelled “读取 / 更新”.\nAt bottom bidirectional direct message arrow between Member A and Member B labelled “直接消息：发现、疑问、核对结果”.\nBottom footnote: “共享任务状态；各自维护会话上下文”.\nNo package names, file paths, source analysis conclusions, provider details, editing instructions. Make the direct peer messaging visibly different from the Lead hierarchy. Shared board conveys task status, not automatically merged private conversation history."
+    }
+  ]
+}
