@@ -16,7 +16,7 @@
 
 Agent 循环负责推进这个过程：把任务、已有上下文和可用工具提供给模型，执行模型发出的工具调用，把工具结果加入会话，再继续下一步。模型决定下一步要做什么，运行时负责实际执行工具并保存结果。
 
-![单 Agent 的循环与会话历史](./images/agent-mode-single-loop.png)
+![单 Agent 的循环与会话历史](https://generated-media-morris2.oss-cn-hangzhou.aliyuncs.com/shared-images/2026/10/02/9839e5cfaa204362b946dc27b1bcdaac.png)
 
 这个过程可以拆成五步：
 
@@ -56,7 +56,7 @@ Session 是会话记录。用户输入、模型输出、工具调用和结果等
 
 当任务可以拆分时，父 Agent 可以把其中一部分交给子 Agent。子 Agent 接收任务后，有自己的会话与执行过程，能够搜索、读文件、继续判断，最后返回结果。
 
-![SubAgent 的委派、独立执行与返回](./images/agent-mode-subagent-delegation.png)
+![SubAgent 的委派、独立执行与返回](https://generated-media-morris2.oss-cn-hangzhou.aliyuncs.com/shared-images/2026/10/02/775deb810a5d44dab7d37cc277b55a3d.png)
 
 父 Agent 的职责也随之变化。它既要完成自己的工作，还要说明子任务、接收子级报告、检查遗漏和矛盾，并形成最终回答。子 Agent 返回一段文本之后，父级仍需判断这段结果是否足以支持整项任务。
 
@@ -94,7 +94,7 @@ Session 是会话记录。用户输入、模型输出、工具调用和结果等
 
 智能体团队由 Lead 和具名成员组成。Lead 负责组织工作、创建成员、协调与汇总；成员各有自己的 Agent 循环和 Session，完成分配到的任务。
 
-![智能体团队的任务板和成员消息](./images/agent-mode-team-collaboration.png)
+![智能体团队的任务板和成员消息](https://generated-media-morris2.oss-cn-hangzhou.aliyuncs.com/shared-images/2026/10/02/2de79aa24f814906815d24c78113ede7.png)
 
 团队在这些 Agent 之间提供成员身份、共享任务板和消息能力。在 DSH 中，Team 构建于可继续子级能力之上，是显式启用的实验性功能。
 

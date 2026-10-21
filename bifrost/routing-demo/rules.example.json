@@ -1,0 +1,98 @@
+{
+  "governance": {
+    "routing_rules": [
+      {
+        "id": "6abf6a68-1788-47d1-aac8-63b9663a0324",
+        "name": "四源价格优先",
+        "enabled": true,
+        "chain_rule": false,
+        "scope": "virtual_key",
+        "scope_id": "REPLACE_WITH_VK_ID",
+        "priority": 10,
+        "cel_expression": "model == \"demo-model\" && \"x-demo-policy\" in headers && headers[\"x-demo-policy\"] == \"cost\"",
+        "targets": [
+          {
+            "provider": "source-a",
+            "model": "demo-model",
+            "weight": 1
+          }
+        ],
+        "fallbacks": [
+          "source-b/demo-model",
+          "source-c/demo-model",
+          "source-d/demo-model"
+        ]
+      },
+      {
+        "id": "fdf0ce20-3375-49a6-8e15-ef045cf15cb1",
+        "name": "四源稳定性优先",
+        "enabled": true,
+        "chain_rule": false,
+        "scope": "virtual_key",
+        "scope_id": "REPLACE_WITH_VK_ID",
+        "priority": 20,
+        "cel_expression": "model == \"demo-model\" && \"x-demo-policy\" in headers && headers[\"x-demo-policy\"] == \"stable\"",
+        "targets": [
+          {
+            "provider": "source-d",
+            "model": "demo-model",
+            "weight": 1
+          }
+        ],
+        "fallbacks": [
+          "source-b/demo-model",
+          "source-c/demo-model",
+          "source-a/demo-model"
+        ]
+      },
+      {
+        "id": "d51f5e44-ba06-4bec-a3fd-6dffc4f0a9e4",
+        "name": "四源高并发任务",
+        "enabled": true,
+        "chain_rule": false,
+        "scope": "virtual_key",
+        "scope_id": "REPLACE_WITH_VK_ID",
+        "priority": 30,
+        "cel_expression": "model == \"demo-model\" && \"x-demo-policy\" in headers && headers[\"x-demo-policy\"] == \"throughput\"",
+        "targets": [
+          {
+            "provider": "source-c",
+            "model": "demo-model",
+            "weight": 1
+          }
+        ],
+        "fallbacks": [
+          "source-d/demo-model",
+          "source-b/demo-model",
+          "source-a/demo-model"
+        ]
+      },
+      {
+        "id": "91dfca54-2e1d-47b7-b7e1-dd3553ffa7b8",
+        "name": "四源默认均衡分流",
+        "enabled": true,
+        "chain_rule": false,
+        "scope": "virtual_key",
+        "scope_id": "REPLACE_WITH_VK_ID",
+        "priority": 100,
+        "cel_expression": "model == \"demo-model\"",
+        "targets": [
+          {
+            "provider": "source-b",
+            "model": "demo-model",
+            "weight": 0.25
+          },
+          {
+            "provider": "source-c",
+            "model": "demo-model",
+            "weight": 0.75
+          }
+        ],
+        "fallbacks": [
+          "source-d/demo-model",
+          "source-a/demo-model"
+        ]
+      }
+    ]
+  }
+}
